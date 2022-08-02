@@ -58,5 +58,13 @@ const header = document.querySelector('.header');
 header.append(message);
 //header.append(message.cloneNode(true));
 
-header.before(message);
-header.after(message);
+//header.before(message);
+//header.after(message);
+
+// Delete elements
+document
+    .querySelector('.btn--close-cookie')
+    .addEventListener('click', function() {
+        message.remove();
+        //message.parentElement.removeChild(message);
+    });
