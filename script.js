@@ -68,3 +68,44 @@ document
         message.remove();
         //message.parentElement.removeChild(message);
     });
+
+// Styles
+message.style.backgroundColor = '#37383d';
+message.style.width = '120%';
+
+console.log(message.style.backgroundColor);
+console.log(message.style.display);
+
+console.log(getComputedStyle(message).display);
+
+message.style.height =
+    Number.parseFloat(getComputedStyle(message).height) + 40 + 'px';
+console.log(message.style.height);
+
+// CSS Custom properties
+document.documentElement.style.setProperty('--color-primary', 'orangered');
+
+// Attributes
+const logo = document.querySelector('.nav__logo');
+console.log(logo.src);
+console.log(logo.className);
+
+logo.alt = 'Beautiful minimalist logo';
+
+console.log(logo.getAttribute('src'));
+
+const link = document.querySelector('.nav__link--btn');
+console.log(link.href);
+console.log(link.getAttribute('href'));
+
+// Data attributes
+console.log(logo.dataset.versionNumber);
+
+// Classes
+logo.classList.add('c', 'j');
+logo.classList.remove('c', 'j');
+logo.classList.toggle('c');
+logo.classList.contains('c');
+
+// Don't use
+logo.className = 'Prince';
