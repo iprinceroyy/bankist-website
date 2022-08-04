@@ -32,80 +32,115 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-console.log(document.documentElement);
-console.log(document.body);
+// console.log(document.documentElement);
+// console.log(document.body);
 
-document.querySelector('.header');
-const allSelections = document.querySelectorAll('.section');
-console.log(allSelections);
+// document.querySelector('.header');
+// const allSelections = document.querySelectorAll('.section');
+// console.log(allSelections);
 
-document.getElementById('section--1');
-const allButtons = document.getElementsByTagName('button');
-console.log(allButtons);
+// document.getElementById('section--1');
+// const allButtons = document.getElementsByTagName('button');
+// console.log(allButtons);
 
-document.getElementsByClassName('btn');
+// document.getElementsByClassName('btn');
 
-// Creating and inserting elements
+// // Creating and inserting elements
 
-const message = document.createElement('div');
-message.classList.add('cookie-message');
-//message.textContent = 'We use cookied for improved functionality and analytics';
-message.innerHTML =
-    'We use cookied for improved functionality and analytics. <button class="btn btn--close-cookie">Got it!</button>';
+// const message = document.createElement('div');
+// message.classList.add('cookie-message');
+// //message.textContent = 'We use cookied for improved functionality and analytics';
+// message.innerHTML =
+//     'We use cookied for improved functionality and analytics. <button class="btn btn--close-cookie">Got it!</button>';
 
-const header = document.querySelector('.header');
-//header.prepend(message);
-header.append(message);
-//header.append(message.cloneNode(true));
+// const header = document.querySelector('.header');
+// //header.prepend(message);
+// header.append(message);
+// //header.append(message.cloneNode(true));
 
-//header.before(message);
-//header.after(message);
+// //header.before(message);
+// //header.after(message);
 
-// Delete elements
-document
-    .querySelector('.btn--close-cookie')
-    .addEventListener('click', function() {
-        message.remove();
-        //message.parentElement.removeChild(message);
-    });
+// // Delete elements
+// document
+//     .querySelector('.btn--close-cookie')
+//     .addEventListener('click', function() {
+//         message.remove();
+//         //message.parentElement.removeChild(message);
+//     });
 
-// Styles
-message.style.backgroundColor = '#37383d';
-message.style.width = '120%';
+// // Styles
+// message.style.backgroundColor = '#37383d';
+// message.style.width = '120%';
 
-console.log(message.style.backgroundColor);
-console.log(message.style.display);
+// console.log(message.style.backgroundColor);
+// console.log(message.style.display);
 
-console.log(getComputedStyle(message).display);
+// console.log(getComputedStyle(message).display);
 
-message.style.height =
-    Number.parseFloat(getComputedStyle(message).height) + 40 + 'px';
-console.log(message.style.height);
+// message.style.height =
+//     Number.parseFloat(getComputedStyle(message).height) + 40 + 'px';
+// console.log(message.style.height);
 
-// CSS Custom properties
-document.documentElement.style.setProperty('--color-primary', 'orangered');
+// // CSS Custom properties
+// document.documentElement.style.setProperty('--color-primary', 'orangered');
 
-// Attributes
-const logo = document.querySelector('.nav__logo');
-console.log(logo.src);
-console.log(logo.className);
+// // Attributes
+// const logo = document.querySelector('.nav__logo');
+// console.log(logo.src);
+// console.log(logo.className);
 
-logo.alt = 'Beautiful minimalist logo';
+// logo.alt = 'Beautiful minimalist logo';
 
-console.log(logo.getAttribute('src'));
+// console.log(logo.getAttribute('src'));
 
-const link = document.querySelector('.nav__link--btn');
-console.log(link.href);
-console.log(link.getAttribute('href'));
+// const link = document.querySelector('.nav__link--btn');
+// console.log(link.href);
+// console.log(link.getAttribute('href'));
 
-// Data attributes
-console.log(logo.dataset.versionNumber);
+// // Data attributes
+// console.log(logo.dataset.versionNumber);
 
-// Classes
-logo.classList.add('c', 'j');
-logo.classList.remove('c', 'j');
-logo.classList.toggle('c');
-logo.classList.contains('c');
+// // Classes
+// logo.classList.add('c', 'j');
+// logo.classList.remove('c', 'j');
+// logo.classList.toggle('c');
+// console.log(logo.classList.contains('c'));
 
-// Don't use
-logo.className = 'Prince';
+// // Don't use
+// logo.className = 'Prince';
+
+// Smooth scroll
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+
+btnScrollTo.addEventListener('click', function(e) {
+    const s1coords = section1.getBoundingClientRect();
+    //console.log(s1coords);
+
+    console.log(e.target.getBoundingClientRect());
+
+    console.log(window.pageXOffset, window.pageYOffset);
+
+    //Scrolling
+    // window.scrollTo(
+    //     s1coords.left + window.pageXOffset,
+    //     s1coords.top + window.pageYOffset
+    // );
+    //Or
+
+    // window.scrollTo({
+    //     left: s1coords.left + window.pageXOffset,
+    //     top: s1coords.top + window.pageYOffset,
+    //     behavior: 'smooth',
+    // });
+    // Or
+
+    section1.scrollIntoView({ behavior: 'smooth' });
+});
+
+const h1 = document.querySelector('h1');
+
+h1.addEventListener('mouseenter', e => {
+    alert('addEventListener: Great! You are reading the heading: D');
+});
