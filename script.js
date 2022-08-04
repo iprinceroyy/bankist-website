@@ -139,8 +139,44 @@ btnScrollTo.addEventListener('click', function(e) {
     section1.scrollIntoView({ behavior: 'smooth' });
 });
 
-const h1 = document.querySelector('h1');
+// const h1 = document.querySelector('h1');
 
-h1.addEventListener('mouseenter', e => {
-    alert('addEventListener: Great! You are reading the heading: D');
-});
+// const alertH1 = e => {
+//     alert('addEventListener: Great! You are reading the heading: D');
+
+//     // Modern way to listen to event only once
+//     //h1.removeEventListener('mouseenter', alertH1);
+// };
+
+// h1.addEventListener('mouseenter', alertH1);
+
+// setTimeout(() => h1.removeEventListener('mouseenter', alertH1), 3000);
+
+// h1.onmouseenter = function(e) {
+//     alert('addEventListener: Great! You are reading the heading: D');
+// };
+
+//rgb
+// const randomInt = (min, max) =>
+//     Math.floor(Math.random() * (max - min + 1) + min);
+
+// const randomColor = () =>
+//     `rgb(${randomInt(0, 255)},${randomInt(0, 255)},${randomInt(0, 255)})`;
+
+// document.querySelector('.nav__link').addEventListener('click', function(e) {
+//     this.style.backgroundColor = randomColor();
+//     console.log('LINK', e.target);
+
+//     // Stop propagation
+//     //e.stopPropagation();
+// });
+
+// document.querySelector('.nav__links').addEventListener('click', function(e) {
+//     this.style.backgroundColor = randomColor();
+//     console.log('CONTAINER', e.target);
+// });
+
+// document.querySelector('.nav').addEventListener('click', function(e) {
+//     this.style.backgroundColor = randomColor();
+//     console.log('NAV', e.target);
+// });
