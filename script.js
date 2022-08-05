@@ -139,21 +139,36 @@ nav.addEventListener('mouseout', handleHover.bind(1));
 // });
 // Sticky navigation: Intersection Observer API
 
-const obsCallBack = function(entries, onserver) {
-    entries.forEach(entry => console.log(entry));
-};
+// const obsCallBack = function(entries, onserver) {
+//     entries.forEach(entry => console.log(entry));
+// };
 
-const obsOptions = {
-    root: null,
-    threshold: [0, 0.2],
-};
+// const obsOptions = {
+//     root: null,
+//     threshold: [0, 0.2],
+// };
 
-const observer = new IntersectionObserver(obsCallBack, obsOptions);
-observer.observe(section1);
+// const observer = new IntersectionObserver(obsCallBack, obsOptions);
+// observer.observe(section1);
 
+// Sticky navigation: Intersection Observer API
 const header = document.querySelector('.header');
+const navHeight = getComputedStyle(nav).height;
+//console.log(navHeight);
 
-const headerObserver = new IntersectionObserver();
+const stickyNav = function(entries) {
+    const [entry] = entries;
+    //console.log(entry);
+
+    if (!entry.isIntersecting) nav.classList.add('sticky');
+    else nav.classList.remove('sticky');
+};
+
+const headerObserver = new IntersectionObserver(stickyNav, {
+    root: null,
+    threshold: 0,
+    rootMargin: `-${navHeight}`,
+});
 headerObserver.observe(header);
 
 ///////////////////////////////////////////
