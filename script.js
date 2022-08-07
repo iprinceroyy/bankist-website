@@ -259,6 +259,11 @@ const prevSlide = () => {
 btnRight.addEventListener('click', nextSlide);
 btnLeft.addEventListener('click', prevSlide);
 
+// On left & right key press
+document.addEventListener('keydown', e => {
+    e.key === 'ArrowLeft' ? prevSlide() : nextSlide();
+});
+
 ///////////////////////////////////////////
 ///////////////////////////////////////////
 //////////////////////////////////////////
