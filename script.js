@@ -239,6 +239,15 @@ const createDots = function() {
 
 createDots();
 
+const activateDots = slide => {
+    document.querySelectorAll('.dots__dot').forEach(dot => {
+        dot.classList.remove('dots__dot--active');
+    });
+    document
+        .querySelector(`.dots__dot[data-slide="${slide}"]`)
+        .classList.add('dots__dot--active');
+};
+
 const goToSlide = currentSlide => {
     slides.forEach(
         (slide, i) =>
@@ -253,6 +262,7 @@ const nextSlide = () => {
     else currentSlide++;
 
     goToSlide(currentSlide);
+    activateDots(currentSlide);
 };
 
 const prevSlide = () => {
@@ -260,6 +270,7 @@ const prevSlide = () => {
     else currentSlide--;
 
     goToSlide(currentSlide);
+    activateDots(currentSlide);
 };
 
 btnRight.addEventListener('click', nextSlide);
@@ -274,6 +285,7 @@ dotContainer.addEventListener('click', e => {
     if (e.target.classList.contains('dots__dot')) {
         const slide = e.target.dataset.slide;
         goToSlide(slide);
+        activateDots(slide);
     }
 });
 
